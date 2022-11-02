@@ -1,0 +1,36 @@
+﻿@model EmployeeListViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a href="@Url.Action("NewEmployee","Employee")" class="btn btn-primary">Add New Employee</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Working Days</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var s in Model.TblEmployees)
+        {
+            <tr>
+                <td>@s.ID</td>
+                <td>@s.Name</td>
+                <td>@s.WorkingDays</td>
+                <td>
+                    <a href="@Url.Action("Edit","Employee", new {id =@s.ID})" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete","Employee", new {id =@s.ID})" class="btn btn-secondary">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>

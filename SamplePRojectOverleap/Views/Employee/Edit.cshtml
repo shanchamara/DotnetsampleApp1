@@ -1,0 +1,41 @@
+﻿@model EditEmployeeViewModel
+@{
+    ViewData["Title"] = "NewEmployee";
+}
+
+<h1>Edit Employee</h1>
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { role = "form" }))
+{
+    <div class="tab">
+        <!-- Seller Details -->
+    @Html.HiddenFor(model=> model.Id)
+
+        <div class="needs-validation" id="onetab">
+
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="basicpill-firstname-input">Employee Name</label>
+
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "" } })
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+
+                        <label for="basicpill-address-input">Working days</label>
+                        @Html.EditorFor(model => model.Workingdays, new { htmlAttributes = new { @class = "form-control", placeholder = "" } })
+
+                    </div>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+}
